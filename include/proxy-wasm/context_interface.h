@@ -582,6 +582,15 @@ struct GeneralInterface {
    */
   virtual WasmResult setProperty(std::string_view key, std::string_view value) = 0;
 
+
+  /**
+   * Set the value of a Dynamicdata.
+   * @param path is a sequence of strings describing a path to a property.
+   * @param value the value to set.  For non-string, non-integral types, the value may be
+   * serialized..
+   */
+  virtual WasmResult setDynamicdata(std::string_view key, std::string_view value) = 0;
+
   /**
    * Custom extension call into the VM. Data is provided as WasmBufferType::CallData.
    * @param foreign_function_id a unique identifier for the calling foreign function. These are
