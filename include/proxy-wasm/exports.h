@@ -67,6 +67,7 @@ Word get_log_level(void *raw_context, Word result_level_uint32_ptr);
 Word get_property(void *raw_context, Word path_ptr, Word path_size, Word value_ptr_ptr,
                   Word value_size_ptr);
 Word set_property(void *raw_context, Word key_ptr, Word key_size, Word value_ptr, Word value_size);
+Word set_dynamicdata(void *raw_context, Word key_ptr, Word key_size, Word value_ptr, Word value_size);
 Word continue_request(void *raw_context);
 Word continue_response(void *raw_context);
 Word continue_stream(void *raw_context, Word stream_type);
@@ -166,7 +167,7 @@ Word pthread_equal(void *, Word left, Word right);
                                   _f(get_current_time_nanoseconds) _f(define_metric)               \
                                       _f(increment_metric) _f(record_metric) _f(get_metric)        \
                                           _f(set_effective_context) _f(done)                       \
-                                              _f(call_foreign_function)
+                                              _f(call_foreign_function) _f(set_dynamicdata)
 
 #define FOR_ALL_HOST_FUNCTIONS_ABI_SPECIFIC(_f)                                                    \
   _f(get_configuration) _f(continue_request) _f(continue_response) _f(clear_route_cache)           \

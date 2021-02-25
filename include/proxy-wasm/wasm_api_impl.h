@@ -64,6 +64,12 @@ inline WasmResult proxy_set_property(const char *key_ptr, size_t key_size, const
                                                 WR(value_ptr), WS(value_size)));
 }
 
+inline WasmResult proxy_set_dynamicdata(const char *key_ptr, size_t key_size, const char *value_ptr,
+                                     size_t value_size) {
+  return wordToWasmResult(exports::set_dynamicdata(current_context_, WR(key_ptr), WS(key_size),
+                                                WR(value_ptr), WS(value_size)));
+}
+
 // Continue
 inline WasmResult proxy_continue_request() {
   return wordToWasmResult(exports::continue_request(current_context_));
